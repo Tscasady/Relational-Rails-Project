@@ -10,4 +10,8 @@ class PlayersController < ApplicationController
 
     player.save
   end
+  
+  def show
+    @player = player.find(params[:id])
+  end
 end
