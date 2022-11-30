@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/players', to: 'players#index'
   get '/players/:id', to: 'players#show'
+  get '/players/:id/games' to: 'player#games'
 
   get '/games', to: 'games#index'
   get '/games/:id', to: 'games#show'
