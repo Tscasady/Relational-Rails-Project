@@ -1,5 +1,4 @@
-<h1>Games Index</h1>
-<%# <% @games ||= Player.find(params[:id] %> %>
+<h1><%= "#{@player.name}'s Games"%></h1>
 
 <% @games.each do |game| %>
   <% game.attribute_names.each do |attribute| %>
