@@ -1,0 +1,7 @@
+<h1><%= "#{@player.name}'s Games"%></h1>
+
+<% @games.each do |game| %>
+  <% game.attribute_names.each do |attribute| %>
+    <p><%= "#{attribute}: " + "#{game[attribute]}"   %></p>
+  <% end %>
+<% end %>
