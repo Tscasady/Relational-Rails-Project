@@ -7,8 +7,6 @@ RSpec.describe 'the players show page' do
 
     visit "/players/#{player1.id}"
 
-    save_and_open_page
-
     expect(page).to have_content(player1.name)
     expect(page).to have_content(player1.rating)
     expect(page).to have_content(player1.age)
