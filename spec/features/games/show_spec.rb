@@ -8,8 +8,6 @@ RSpec.describe 'the games show page' do
     
     visit "/games/#{game1.id}"
 
-    save_and_open_page
-
     expect(page).to have_content(game1.name)
     expect(page).to have_content(game1.won?)
     expect(page).to_not have_content(game2.name)
