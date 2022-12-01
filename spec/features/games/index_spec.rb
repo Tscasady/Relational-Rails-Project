@@ -10,8 +10,6 @@ RSpec.describe 'the games index page' do
     
     visit '/games'
 
-    save_and_open_page
-
     expect(page).to have_content(game1.name)
     expect(page).to have_content(game2.name)
     expect(page).to have_content(game3.name)
