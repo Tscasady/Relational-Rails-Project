@@ -7,8 +7,6 @@ RSpec.describe 'the players index page' do
 
     visit '/players'
 
-    save_and_open_page
-
     expect(page).to have_content(player1.name)
     expect(page).to have_content(player2.name)
   end
