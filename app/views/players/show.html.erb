@@ -1,5 +1,8 @@
 <a href="/players">Player Data</a>
 
+
 <% @player.attribute_names.each do |attribute| %>
   <p><%= "#{attribute}: " + "#{@player[attribute]}"   %></p>
 <% end %>
+
+<p>Games Played: <%= @count %></p>
