@@ -24,4 +24,11 @@ RSpec.describe 'the players show page' do
 
     expect(page).to have_content("Games Played: #{player1.games.count}")
   end
+
+  it 'has a link to the players games' do
+    visit "/players/#{player1.id}"
+    expect(page).to have_link '', href: "/players/#{player1.id}/games"
+    visit "/players/#{player2.id}"
+    expect(page).to have_link '', href: "/players/#{player2.id}/games"
+  end
 end
