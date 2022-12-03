@@ -33,4 +33,20 @@ RSpec.describe 'the players show page' do
     visit "/players/#{player2.id}"
     expect(page).to have_link 'Games Played', href: "/players/#{player2.id}/games"
   end
+  
+# When I click the link "Update Parent"
+# Then I am taken to '/parents/:id/edit' where I  see a form to edit the parent's attributes:
+# When I fill out the form with updated information
+# And I click the button to submit the form
+# Then a `PATCH` request is sent to '/parents/:id',
+# the parent's info is updated,
+# and I am redirected to the Parent's Show page where I see the parent's updated info
+  it 'has a link to update players' do
+    player1 = Player.create!(name: 'Magnus', rating: 3000, age: 32)
+    player2 = Player.create!(name: 'Anthony', rating: 1100, age: 38)
+    visit "/players/#{player1.id}"
+    expect(page).to have_link 'Update Player', href: "/players/#{player1.id}/games"
+    visit "/players/#{player2.id}"
+    expect(page).to have_link 'Update Player', href: "/players/#{player2.id}/games"
+  end
 end
