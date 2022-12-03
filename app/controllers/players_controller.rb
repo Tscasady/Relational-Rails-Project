@@ -7,4 +7,8 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
     @count = @player.game_count
   end
+
+  def new
+    
+  end
 end
