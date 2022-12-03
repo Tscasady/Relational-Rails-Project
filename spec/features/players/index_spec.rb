@@ -10,4 +10,10 @@ RSpec.describe 'the players index page' do
     expect(page).to have_content(player1.name)
     expect(page).to have_content(player2.name)
   end
+
+  it 'has a link to go to /parents/new' do
+    visit '/players'
+
+    expect(page).to have_link 'New Player', href: '/players/new'
+  end
 end
