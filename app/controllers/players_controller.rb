@@ -9,6 +9,16 @@ class PlayersController < ApplicationController
   end
 
   def new
-    
+  end
+
+  def create
+    Player.create(player_params)
+    redirect_to '/players'    
+  end
+
+  private
+
+  def player_params
+    params.permit(:name, :rating, :age)
   end
 end
