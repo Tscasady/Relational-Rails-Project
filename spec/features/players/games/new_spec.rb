@@ -6,8 +6,9 @@ RSpec.describe "the players' games' new page" do
     
     visit "/players/#{player1.id}/games/new"
 
-    fill_in('Name', with: 'Tournament2Round3')
-    fill_in('won?', with: true)
+    save_and_open_page
+    fill_in('name', with: 'Tournament2Round3')
+    choose(:won, option: true)
     fill_in('pieces', with: 'white')
     click_on('Create Game')
 
