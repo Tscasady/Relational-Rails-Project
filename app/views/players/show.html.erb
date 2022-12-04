@@ -4,3 +4,5 @@
 <% end %>
 
 <p><a href=<%="/players/#{@player.id}/games"%>>Games Played:</a> <%= @count %></p>
+
+<%= button_to "Update Player", "/players/#{@player.id}/edit", method: :get%>
