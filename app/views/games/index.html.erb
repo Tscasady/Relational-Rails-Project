@@ -1,7 +1,8 @@
 <h1>Games Index</h1>
-<%# <% @games ||= Player.find(params[:id] %> %>
+<%# <% @games ||= Player.find(params[:id] %> 
 
 <% @games.each do |game| %>
+  <%= link_to "Game Details", "/games/#{game.id}"%>
   <% game.attribute_names.each do |attribute| %>
     <p><%= "#{attribute}: " + "#{game[attribute]}"   %></p>
   <% end %>
