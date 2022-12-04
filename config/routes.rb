@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/players/new', to: 'players#new'
   get '/players/:id', to: 'players#show'
   get '/players/:id/games', to: 'players/games#index'
+  get '/players/:id/games/new', to: 'players/games#new'
   get '/games', to: 'games#index'
   get '/games/:id', to: 'games#show'
   post '/players', to: 'players#create'
