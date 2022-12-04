@@ -3,5 +3,5 @@
 <a href="/players/new">New Player</a>
 
 <% @players.each do |player| %>
-  <h3><%= player.name %> <%= player.created_at %></h3>
+  <h3><%= link_to "#{player.name}", "/players/#{player.id}" %> <%= player.created_at %></h3>
 <% end %>
