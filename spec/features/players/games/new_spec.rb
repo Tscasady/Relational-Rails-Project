@@ -6,14 +6,17 @@ RSpec.describe "the players' games' new page" do
     
     visit "/players/#{player1.id}/games/new"
 
-    save_and_open_page
     fill_in('name', with: 'Tournament2Round3')
-    choose(:won, option: true)
+    expect(page).to have_field :won
+    choose(:won, with: "true")
     fill_in('pieces', with: 'white')
     click_on('Create Game')
-
-    new_game_id = Game.last.id
+    
+    game = Game.last
     expect(current_path).to eq("/players/#{player1.id}/games")
-    expect(page).to have_content(new_game_id)
+    expect(page).to have_content(game.id)
+    expect(page).to have_content(game.won?)
+    expect(page).to have_content(game.name)
+    
   end
 end
