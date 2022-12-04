@@ -6,7 +6,7 @@
   <% end %>
 <% end %>
 
-<%= button_to "Create Game", url: "/players/#{@player.id}/games/new", method: 'get', local: true %>
+<%= button_to "Create Game", "/players/#{@player.id}/games/new", method: :get, local: true %>
 
 
   
