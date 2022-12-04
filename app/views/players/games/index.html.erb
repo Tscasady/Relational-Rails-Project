@@ -5,3 +5,8 @@
     <p><%= "#{attribute}: " + "#{game[attribute]}"   %></p>
   <% end %>
 <% end %>
+
+<%= button_to "Create Game", url: "/players/#{@player.id}/games/new", method: 'get', local: true %>
+
+
+  
