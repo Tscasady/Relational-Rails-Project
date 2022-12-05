@@ -16,8 +16,8 @@ RSpec.describe 'the games edit page' do
 
     
     expect(current_path).to eq "/games/#{game1.id}"
-    expect(page).to have_content(game1.name)
-    expect(page).to have_content(game1.won?)
-    expect(page).to have_content(game1.pieces)
+    expect(page).to have_content "Round3"
+    expect(page).to have_content "true" 
+    expect(page).to have_content "white"
   end
 end
