@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 2022_11_29_210035) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "won?"
-    t.string "pieces"
+    t.boolean "won"
+    t.integer "number_of_moves"
     t.bigint "player_id"
     t.index ["player_id"], name: "index_games_on_player_id"
   end
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_11_29_210035) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "rating"
-    t.integer "age"
+    t.boolean "professional"
   end
 
   add_foreign_key "games", "players"

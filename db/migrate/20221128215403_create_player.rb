@@ -4,7 +4,7 @@ class CreatePlayer < ActiveRecord::Migration[5.2]
       t.string :name
       t.timestamps
       t.integer :rating
-      t.integer :age
+      t.boolean :professional
     end
   end
 end
