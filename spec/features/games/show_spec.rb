@@ -21,6 +21,8 @@ RSpec.describe 'the games show page' do
 
     visit "/games/#{game1.id}"
 
-    expect(page).to have_link "Update Game", href: "/games/#{game1.id}/edit"
+    click_button "Update Game"
+
+    expect(current_path).to eq("/games/#{game1.id}/edit")
   end
 end
