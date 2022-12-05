@@ -2,8 +2,10 @@
   <%= form.label :name%>
   <%= form.text_field :name%><br>
   <%= form.label :Rating%>
-  <%= form.text_field :rating%><br>
-  <%= form.label :age%>
-  <%= form.text_field :age%><br>
+  <%= form.number_field :rating%><br>
+  <%= form.label :professional, "Yes"%>
+  <%= form.radio_button :professional, value=true%>
+  <%= form.label :professional, "No"%>
+  <%= form.radio_button :professional, value=false%><br>
   <%= form.submit "Submit" %>
 <% end %>

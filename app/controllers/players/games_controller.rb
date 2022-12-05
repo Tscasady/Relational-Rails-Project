@@ -10,13 +10,13 @@ class Players::GamesController < ApplicationController
 
   def create
     @player = Player.find(params[:id])
-    @game = @player.games.create(name: params[:name], won?: params[:won], pieces: params[:pieces])
+    @game = @player.games.create(game_params)
     redirect_to "/players/#{@player.id}/games"
   end
 
   private 
 
   def game_params
-    params.permit(:name, :won?, :pieces)
+    params.permit(:name, :won, :number_of_moves)
   end
 end
