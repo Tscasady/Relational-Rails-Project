@@ -13,7 +13,13 @@ class GamesController < ApplicationController
   
   def update
     game = Game.find(params[:id])
-    game.update(name: params[:name], won?: params[:won], pieces: params[:pieces])
+    game.update(game_params)
     redirect_to "/games/#{game.id}"
+  end
+
+  private
+  
+  def game_params
+    params.permit(:name, :won, :number_of_moves)
   end
 end

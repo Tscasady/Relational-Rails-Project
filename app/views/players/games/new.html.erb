@@ -2,10 +2,10 @@
   <%= form.label :name %>
   <%= form.text_field :name%><br>
   <%= form.label :won, "Won" %>
-  <%= form.radio_button :won?, value=true %>
+  <%= form.radio_button :won, value=true %>
   <%= form.label :lost, "Lost" %>
-  <%= form.radio_button :won?, value=false %><br>
-  <%= form.label :pieces %>
-  <%= form.text_field :pieces %><br>
+  <%= form.radio_button :won, value=false %><br>
+  <%= form.label :number_of_moves %>
+  <%= form.number_field :number_of_moves %><br>
   <%= form.submit "Create Game" %>
 <% end %>
