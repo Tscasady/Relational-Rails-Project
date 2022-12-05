@@ -24,4 +24,12 @@ RSpec.describe "the players' games index page" do
     
     expect(current_path).to eq "/players/#{player1.id}/games/new"
   end
+
+  it 'has a link to sort the game in alphabetical order' do
+    player1 = Player.create!(name: 'Magnus', rating: 3000, professional: true)
+
+    visit "/players/#{player1.id}/games"
+
+    expect(page).to have_link 'Sort Alphabetically', href: "/players/#{player1.id}/games?sort=alpha"
+  end
 end
