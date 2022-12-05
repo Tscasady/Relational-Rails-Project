@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.all
+    @games = Game.where(won: :true)
   end
   
   def show
