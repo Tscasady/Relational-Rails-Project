@@ -4,6 +4,9 @@ RSpec.describe 'it can update a Players info' do
   it 'has a form where the user can update Player attributes' do
     player1 = Player.create!(name: 'Magnus', rating: 3000, age: 32)
 
+    visit "/players/#{player1.id}"
+    expect(page).to have_content "Magnus"
+
     visit "/players/#{player1.id}/edit"
 
     fill_in("Name", with: "Wesley So")
