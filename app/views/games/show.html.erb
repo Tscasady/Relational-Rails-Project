@@ -1,5 +1,7 @@
-<h1><%= @game.name%></h1>
+<h1>Game Details</h1>
 
 <% @game.attribute_names.each do |attribute| %>
   <p><%= "#{attribute}: " + "#{@game[attribute]}"   %></p>
 <% end %>
+
+<%= button_to "Update Game", "/games/#{@game.id}/edit", method: :get%>

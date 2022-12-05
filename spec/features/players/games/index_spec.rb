@@ -15,4 +15,13 @@ RSpec.describe "the players' games index page" do
     expect(page).to have_content(game2.name)
     expect(page).to_not have_content(game3.id)
   end
+
+  it 'has a button to create a new game' do
+    player1 = Player.create!(name: 'Magnus', rating: 3000, age: 32)
+    
+    visit "/players/#{player1.id}/games"
+    click_button "Create Game"
+    
+    expect(current_path).to eq "/players/#{player1.id}/games/new"
+  end
 end

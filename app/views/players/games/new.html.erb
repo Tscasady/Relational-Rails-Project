@@ -1,0 +1,11 @@
+<%= form_with url: "/players/#{@player.id}/games", method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name%><br>
+  <%= form.label :won, "Won" %>
+  <%= form.radio_button :won?, value=true %>
+  <%= form.label :lost, "Lost" %>
+  <%= form.radio_button :won?, value=false %><br>
+  <%= form.label :pieces %>
+  <%= form.text_field :pieces %><br>
+  <%= form.submit "Create Game" %>
+<% end %>
