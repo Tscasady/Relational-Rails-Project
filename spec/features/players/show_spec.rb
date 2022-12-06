@@ -42,4 +42,14 @@ RSpec.describe 'the players show page' do
 
     expect(current_path).to eq "/players/#{player1.id}/edit"
   end
+
+  it 'has a link that can delete a player' do
+    player1 = Player.create!(name: 'Magnus', rating: 3000, professional: true)
+    visit "/players/#{player1.id}"
+    
+    click_button "Delete Player"
+
+    expect(current_path).to eq "/players"
+    expect(page).to_not have_content(player1.name)
+  end
 end

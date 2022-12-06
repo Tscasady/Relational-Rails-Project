@@ -17,6 +17,10 @@ class GamesController < ApplicationController
     redirect_to "/games/#{game.id}"
   end
 
+  def destroy
+    Game.find(params[:id]).destroy
+    redirect_to games_path
+  end
   private
   
   def game_params
