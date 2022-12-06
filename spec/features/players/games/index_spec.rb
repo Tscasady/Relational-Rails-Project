@@ -32,4 +32,16 @@ RSpec.describe "the players' games index page" do
 
     expect(page).to have_link 'Sort Alphabetically', href: "/players/#{player1.id}/games?sort=alpha"
   end
+
+  it 'displays games in alphabetical order when the link is pressed' do
+    player1 = Player.create!(name: 'Magnus', created_at: Time.now-4.days, rating: 3000, professional: true)
+    game1 = player1.games.create(name: "Sinquefield Cup Round 1", won: true, number_of_moves: rand(10..80), player: player1)
+    game2 = player1.games.create(name: "Grand Prix 2022", won: true, number_of_moves: rand(10..80), player: player1)
+
+    visit "/players/#{player1.id}/games"
+    save_and_open_page
+    click_link 'Sort Alphabetically'
+
+    expect(game2.name).to appear_before (game1.name) 
+  end
 end
