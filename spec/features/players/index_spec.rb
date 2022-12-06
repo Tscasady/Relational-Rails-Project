@@ -26,4 +26,14 @@ RSpec.describe 'the players index page' do
     expect(page).to have_link "#{player1.name}", href: "/players/#{player1.id}"
     expect(page).to have_link "#{player2.name}", href: "/players/#{player2.id}"
   end
+
+  it 'has a link to edit each parent' do
+    player1 = Player.create!(name: 'Magnus', rating: 3000, professional: true)
+    player2 = Player.create!(name: 'Anthony', rating: 1100, professional: false)
+
+    visit '/players'
+
+    expect(page).to have_link "Edit #{player1.name}", href: "/players/#{player1.id}/edit"
+    expect(page).to have_link "Edit #{player2.name}", href: "/players/#{player2.id}/edit"
+  end
 end
