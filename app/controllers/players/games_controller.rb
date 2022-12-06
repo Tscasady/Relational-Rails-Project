@@ -1,7 +1,7 @@
 class Players::GamesController < ApplicationController
   def index
     @player = Player.find(params[:id])
-    @games = @player.games
+    @games = @player.ordered_games(params[:sort])
   end
 
   def new
