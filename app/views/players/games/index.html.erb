@@ -3,6 +3,7 @@
 <% @games.each do |game| %>
   <% game.attribute_names.each do |attribute| %>
     <p><%= "#{attribute}: " + "#{game[attribute]}"   %></p>
+    <%= link_to "Edit #{game.name}", "/games/#{game.id}/edit" %>
   <% end %>
 <% end %>
 
