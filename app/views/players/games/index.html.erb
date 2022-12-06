@@ -8,6 +8,11 @@
 <% end %>
 
 <%= button_to "Create Game", "/players/#{@player.id}/games/new", method: :get, local: true %>
-
-
+<%= form_with url: "/players/#{@player.id}/games", method: :get, local: true do |form| %>
+  <%= form.label "Only show games with more than" %>
+  <%= form.number_field :sort%>
+  <%= form.submit "Submit"%>
+<% end %>  
+  
+  
   

@@ -59,12 +59,14 @@ RSpec.describe "the players' games index page" do
   it 'has a numerical field to filter games by number of moves' do
     player1 = Player.create!(name: 'Magnus', rating: 3000, professional: true)
     game1 = player1.games.create!(name: 'Tournament1Round1', won: true, number_of_moves: 24)
-    game2 = player1.games.create!(name: 'Sinquefield Cup Round 1', won: false, number_of_moves: 21)
+    game2 = player1.games.create!(name: 'Sinquefield Cup Round 1', won: true, number_of_moves: 21)
     game3 = player1.games.create!(name: 'Grand Prix round 1', won: true, number_of_moves: 29)
 
     visit "/players/#{player1.id}/games"
-    fill_in "number_of_moves", with: 23
-
+    fill_in "sort", with: 23
+    click_button "Submit"
+    
+    expect(current_path). to eq "/players/#{player1.id}/games"
     expect(page).to have_content game1.number_of_moves
     expect(page).to_not have_content game2.number_of_moves
     expect(page).to have_content game3.number_of_moves

@@ -14,6 +14,8 @@ class Player < ApplicationRecord
       self.games.where(won: :true)
     elsif sort == "alpha"
       games.order(:name)
+    elsif sort.to_i.class == Integer
+      games.where("number_of_moves > #{sort}")
     end
   end
 end
