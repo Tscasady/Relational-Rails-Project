@@ -14,7 +14,6 @@ RSpec.describe 'the games index page' do
     expect(page).to_not have_content(game2.name)
     expect(page).to have_content(game3.name)
     expect(page).to have_content(game1.won)
-    expect(page).to_not have_content(game2.number_of_moves)
     expect(page).to have_content(game3.player_id)
     expect(page).to_not have_content(false)
     
@@ -29,5 +28,17 @@ RSpec.describe 'the games index page' do
 
     expect(page).to have_link "Game Details", href: "/games/#{game1.id}"
     expect(page).to_not have_link "Game Details", href: "/games/#{game2.id}"
+  end
+
+  it 'has a link to edit each game' do
+    player1 = Player.create!(name: 'Magnus', rating: 3000, professional: true)
+    game1 = player1.games.create!(name: 'Tournament1Round1', won: true, number_of_moves: 24)
+    game2 = player1.games.create!(name: 'Sinquefield Cup Round 1', won: false, number_of_moves: 21)
+    game3 = player1.games.create!(name: 'Grand Prix round 1', won: true, number_of_moves: 29)
+
+    visit "/games"
+
+    expect(page).to have_link "Edit #{game1.name}", href: "/games/#{game1.id}/edit"
+    expect(page).to have_link "Edit #{game3.name}", href: "/games/#{game3.id}/edit"
   end
 end
