@@ -28,14 +28,14 @@ RSpec.describe 'the games show page' do
   
   it 'has a link that can delete a game' do
     player1 = Player.create!(name: 'Magnus', rating: 3000, professional: true)
-    game1 = player1.games.create!(name: 'Tournament1Round1', won: true, number_of_moves: 43)
+    game1 = player1.games.create!(name: 'Sinquefield Cup Round 1', won: true, number_of_moves: 43)
     game2 = player1.games.create!(name: 'Tournament1Round1', won: true, number_of_moves: 31)
     
-    visit "/players/#{player1.id}"
+    visit "/games/#{game1.id}"
     
-    click_button "Delete Player"
+    click_button "Delete Game"
 
-    expect(current_path).to eq "/players"
+    expect(current_path).to eq "/games"
     expect(page).to_not have_content(game1.name)
     expect(page).to have_content(game2.name)
   end

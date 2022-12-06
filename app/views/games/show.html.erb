@@ -5,3 +5,4 @@
 <% end %>
 
 <%= button_to "Update Game", "/games/#{@game.id}/edit", method: :get%>
+<%= button_to "Delete Game", "/games/#{@game.id}", method: :delete%>
