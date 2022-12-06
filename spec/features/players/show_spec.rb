@@ -50,6 +50,6 @@ RSpec.describe 'the players show page' do
     click_button "Delete Player"
 
     expect(current_path).to eq "/players"
-    expect(page).to to_not have_content(player1.name)
+    expect(page).to_not have_content(player1.name)
   end
 end
