@@ -2,6 +2,7 @@
 <%= link_to "Sort Alphabetically", "/players/#{@player.id}/games?sort=alpha" %><br><br>
 <% @games.each do |game| %>
   <%= link_to "Edit #{game.name}", "/games/#{game.id}/edit" %>
+  <%= link_to "Delete #{game.name}", "/games/#{game.id}/delete" %>
   <% game.attribute_names.each do |attribute| %>
     <p><%= "#{attribute}: " + "#{game[attribute]}"   %></p>
   <% end %>

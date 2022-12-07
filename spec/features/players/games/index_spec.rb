@@ -71,4 +71,18 @@ RSpec.describe "the players' games index page" do
     expect(page).to_not have_content game2.number_of_moves
     expect(page).to have_content game3.number_of_moves
   end
+
+  it 'has a link to delete each game' do
+    player1 = Player.create!(name: 'Magnus', rating: 3000, professional: true)
+    player2 = Player.create!(name: 'Anthony', rating: 1100, professional: false)
+    game1 = player1.games.create!(name: 'Tournament1Round1', won: true, number_of_moves: 24)
+    game2 = player1.games.create!(name: 'Sinquefield Cup Round 1', won: true, number_of_moves: 21)
+    game3 = player2.games.create!(name: 'Grand Prix round 1', won: true, number_of_moves: 29)
+    
+    visit "/players/#{player1.id}/games"
+    
+    expect(page).to have_link "Delete #{game1.name}"
+    expect(page).to have_link "Delete #{game2.name}"
+    expect(page).to_not have_link "Delete #{game3.name}"
+  end
 end
