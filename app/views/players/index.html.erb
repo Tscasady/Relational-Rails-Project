@@ -5,4 +5,5 @@
 <% @players.each do |player| %>
   <h3><%= link_to "#{player.name}", "/players/#{player.id}" %> <%= player.created_at %></h3>
   <%= link_to "Edit #{player.name}", "/players/#{player.id}/edit" %>
+  <%= link_to "Delete #{player.name}", "/players/#{player.id}/delete" %>
 <% end %>
