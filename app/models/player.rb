@@ -10,12 +10,6 @@ class Player < ApplicationRecord
   end
 
   def ordered_games(sort)
-    if sort.nil?
-      self.games.where(won: :true)
-    elsif sort == "alpha"
-      games.order(:name)
-    elsif sort.to_i.class == Integer
-      games.where("number_of_moves > #{sort}")
-    end
+    Orderer.ordered_games(self, sort)
   end
 end
