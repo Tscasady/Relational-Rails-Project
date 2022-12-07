@@ -33,8 +33,7 @@ module Orderer
       @player.games.order(:name)
     end
   end
-  
-  #create nested factories / inheritance structure?
+
   class ColumnOrder
     def initialize(player, sort)
       @player = player
